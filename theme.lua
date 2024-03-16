@@ -5,17 +5,22 @@
 --    By Adrian C. (anrxc)   --
 -------------------------------
 
-local themes_path = require("gears.filesystem").get_themes_dir()
+-- local themes_path = require("gears.filesystem").get_themes_dir()
+local themes_path = os.getenv("HOME") .. "/.config/awesome/themes/"
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "nord/nord-background.png"
+-- theme.wallpaper = themes_path .. "nord/nord-background.png"
+theme.wallpaper_cmd = {
+    "/usr/bin/nitrogen --restore"
+}
 -- }}}
 
 -- {{{ Styles
 -- theme.font      = "sans 8"
-theme.font      = "Play 9"
+-- theme.font      = "Play 9"
+theme.font      = "bitstream vera sans 11"
 
 -- {{{ Colors
 theme.fg_normal  = "#ECEFF4"
@@ -28,10 +33,10 @@ theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(2)
+theme.useless_gap   = dpi(6)
+theme.border_width  = dpi(4)
 theme.border_normal = "#3B4252"
-theme.border_focus  = "#4C566A"
+theme.border_focus  = "#81a1c1"
 theme.border_marked = "#D08770"
 -- }}}
 
@@ -103,6 +108,14 @@ theme.layout_cornernw   = themes_path .. "nord/layouts/cornernw.png"
 theme.layout_cornerne   = themes_path .. "nord/layouts/cornerne.png"
 theme.layout_cornersw   = themes_path .. "nord/layouts/cornersw.png"
 theme.layout_cornerse   = themes_path .. "nord/layouts/cornerse.png"
+-- }}}
+-- {{{ Lain
+theme.layout_termfair    = themes_path .. "nord/layouts/termfair.png"
+theme.layout_centerfair  = themes_path .. "nord/layouts/centerfair.png"  -- termfair.center
+theme.layout_cascade     = themes_path .. "nord/layouts/cascade.png"
+theme.layout_cascadetile = themes_path .. "nord/layouts/cascadetile.png" -- cascade.tile
+theme.layout_centerwork  = themes_path .. "nord/layouts/centerwork.png"
+theme.layout_centerworkh = themes_path .. "nord/layouts/centerworkh.png" -- centerwork.horizontal
 -- }}}
 
 -- {{{ Titlebar
